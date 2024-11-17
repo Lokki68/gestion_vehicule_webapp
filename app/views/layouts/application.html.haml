@@ -14,20 +14,8 @@
     %link{href: "/icon.png", rel: "apple-touch-icon"}/
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application"
-  %body.hold-transition.sidebar-mini.layout-fixed
-    .wrapper
-      = render partial: 'shared/top_bar'
-      = render partial: 'shared/left_side'
-
-      .content-wrapper
-        .content-header 
-          .container-fluid
-            .row.mb-2 
-              .col-sm-9   
-                = yield :page_title
-              .col-sm-3
-                = yield :subtitle
-        %section.content
-          .container-fluid 
-            = render partial: 'shared/flash'
+  %body
+    .container-fluid 
       = yield
+     
+    
