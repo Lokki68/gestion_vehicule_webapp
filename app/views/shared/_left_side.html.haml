@@ -1,0 +1,16 @@
+%aside.main-sidebar.sidebar-dark-primary.elevation-4
+  %a.brand-link{:href => root_path}
+    -# TODO: Create Logo
+    -# = image_tag asset_path("logo.png"), class: "brand-image img-circle elevation-3"
+    %span.brand-text.font-weight-light Gestion Vehicules
+  .sidebar
+    .user-panel.mt-3.pb-3.mb-3.d-flex
+      .image
+        &nbsp;
+        -# - if current_user.photo.attached?
+        -#   -# = image_tag current_ambassador.profileable.photo.representation(resize_to_limit: [128, 128]), class: "img-circle elevation-2"
+      .info
+        -# TODO: set current_user
+        %a.d-block{:href => "#"}= 'Brice Libert'
+    %nav.mt-2
+      %ul.nav.nav-pills.nav-sidebar.flex-column{"data-accordion" => "false", "data-widget" => "treeview", :role => "menu"}

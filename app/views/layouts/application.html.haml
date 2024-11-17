@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= content_for(:title) || "Gestion Vehicules"
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
+    %meta{content: "yes", name: "apple-mobile-web-app-capable"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = yield :head
+    %link{href: "/manifest.json", rel: "manifest"}/
+    %link{href: "/icon.png", rel: "icon", type: "image/png"}/
+    %link{href: "/icon.svg", rel: "icon", type: "image/svg+xml"}/
+    %link{href: "/icon.png", rel: "apple-touch-icon"}/
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application"
+  %body.hold-transition.sidebar-mini.layout-fixed
+    .wrapper
+      = render partial: 'shared/top_bar'
+      = render partial: 'shared/left_side'
+
+      .content-wrapper
+        .content-header 
+          .container-fluid
+            .row.mb-2 
+              .col-sm-9   
+                = yield :page_title
+              .col-sm-3
+                = yield :subtitle
+        %section.content
+          .container-fluid 
+            = render partial: 'shared/flash'
+      = yield
